@@ -1,4 +1,6 @@
-# *Natural Playgrounds Toolkit* Android app
+# *This repo has been mirrored to The Reach Trust Gitlab instance and is scheduled for deletion*
+
+## *Natural Playgrounds Toolkit* Android app
 
 An Android app version of the Natural Playgrounds Toolkit manual, built using Cordova. 
 
@@ -18,7 +20,7 @@ A number of Cordova plugins are required to ensure the full functionality of the
 | cordova-plugin-progressdialog | Required for file share |
 
 
-## If this is your first time...
+### If this is your first time...
 
 Before building the app for the first time, ensure your system includes
 
@@ -26,20 +28,20 @@ Before building the app for the first time, ensure your system includes
 * Java Developer Kit [11] (instructions [here](https://www.oracle.com/java/technologies/downloads/#java11))
 * Cordova [latest] (instructions [here](https://cordova.apache.org/docs/en/latest/guide/cli/#installing-the-cordova-cli))
 
-## Build
+### Build
 
-### HTML
+#### HTML
 
 To update the contents of the app:
 
 1. Generate the content in the [https://github.com/Roger-Federer-Foundation/rff-natural-playgrounds](https://github.com/Roger-Federer-Foundation/rff-natural-playgrounds) repo using the 'Create an app > Generate HTML only' option in its CLI `run` script.
 2. Copy the entire `_site/app/www` folder there into the root of this repo.
 
-### JavaScript
+#### JavaScript
 
 The JavaScript for the app-specific functionality can be found in www/assets/js/bundle-android.js. This bundles two features: the first for copying videos from an SD card into the app's storage folder on the device, and the second for handling PDFs within the app.
 
-### APK
+#### APK
 
 1. Add the correct version of cordova-android.
 
@@ -66,7 +68,7 @@ The JavaScript for the app-specific functionality can be found in www/assets/js/
 
 The output of this command will end with the filepath of the built `apk`. Install this on an Android device for testing.
 
-## Test
+### Test
 
 First, ensure that the [ELK File Manager](https://play.google.com/store/apps/details?id=org.rff.digitres.elkfilemanager) app is installed. Open it, and grant it any necessary permissions, before continuing with testing. Then:
 
@@ -74,7 +76,7 @@ First, ensure that the [ELK File Manager](https://play.google.com/store/apps/det
 - If testing the video transfer functionality, copy the videos files listed [here](https://rff.ebw.co/URLList.json) to a folder called `npt` on an SD card, and insert the card into the device.
 - Install the app.
 
-## Release
+### Release
 
 Once you're satisfied with the app, build a signed Android App Bundle to upload to the Google Play store. Read more about app signing [here](https://developer.android.com/studio/publish/app-signing). 
 
