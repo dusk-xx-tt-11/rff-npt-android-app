@@ -13,3 +13,4 @@ build.json
 *.zip
 main.*.com*
 patch.*.com*
+/keys/rff-natural-playground-toolkit.keystore
