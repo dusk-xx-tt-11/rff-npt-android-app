@@ -1,5 +1,3 @@
-# *This repo has been mirrored to The Reach Trust Gitlab instance and is scheduled for deletion*
-
 ## *Natural Playgrounds Toolkit* Android app
 
 An Android app version of the Natural Playgrounds Toolkit manual, built using Cordova. 
