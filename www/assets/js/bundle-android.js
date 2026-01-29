@@ -80,18 +80,40 @@ function ebDownloadVideosFromTheInternet() {
         updateVideoStatus("Some video files are required by this application.",true,vids);
         //bind the buttons
         document.getElementById("videocopy").onclick=()=>{
-          cordova.plugins.ElkFilesShare.importFile(
-                ["NPT"],
-                 function(result){
-                     console.log(result);
-                  // updateVideoStatus("Importing using ELK File manager",false)
-                 },
-                 function(err){
-                 console.log(err);
-                 alert(err)
-                 }
-          );
-         // document.getElementById("videofilelist").click();
+            var targetSaveDirectory = cordova.file.dataDirectory;
+            cordova.plugins.ElkFilesShare.selectDirectory(
+              function (result) {
+                  selectedSourceDir = result;
+                  console.log("SELECTED DIR: "  + result);
+                 cordova.plugin.progressDialog.init({
+                    progressStyle: 'SPINNER',
+                    cancelable: false,
+                    title: 'Please Wait...',
+                    message: 'Copying files to application storage ...',
+                  });
+                   cordova.plugins.ElkFilesShare.importFolderFiles(
+                     [selectedSourceDir,targetSaveDirectory],
+                     function (result) {
+                       console.log(result);
+                     let vids = filelist.map(n=>({ name:n, status:"AVAILABLE" }));
+                     updateVideoStatus("Finished Copying files.",false, vids);
+                     window.localStorage.setItem("import-done","true");
+                     cordova.plugin.progressDialog.dismiss();
+                     setTimeout(function(){
+                        window.location.reload(true);
+                     },5000);
+                     },
+                     function (err) {
+                        console.log(err);
+                        cordova.plugin.progressDialog.dismiss();
+                        alert(err);
+                     }
+                   );
+              },
+              function (err) {
+                console.log(err);
+                alert(err);
+              });
         }
         document.getElementById("videodownload").onclick=()=>{
           ebActivateVideoLoadingMessage();
@@ -237,7 +259,8 @@ function ebCheckDeviceForVideoFiles() {
     
         // Else, start looking for an SD card
         function failure() {
-            ebRequestExternalSdPermission();
+            showVideoMenu();
+            //ebRequestExternalSdPermission();
         }
     );
 }

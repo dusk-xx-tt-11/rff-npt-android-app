@@ -32,9 +32,6 @@
         <preference name="AndroidExtraFilesystems" value="files,files-external,documents,sdcard,cache,cache-external,assets,root" />
         <preference name="AndroidXEnabled" value="true" />
         <config-file target="AndroidManifest.xml" parent="/manifest">
-            <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-            <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
-            <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
             <uses-permission android:name="android.permission.REORDER_TASKS" />
         </config-file>
         <config-file target="AndroidManifest.xml" platform="android" parent="/manifest/application/activity" >
