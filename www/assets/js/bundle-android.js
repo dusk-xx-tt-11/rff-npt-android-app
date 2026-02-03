@@ -176,39 +176,39 @@ function ebDownloadVideosFromTheInternet() {
 //        );
 //    }
 
-
-function ebRequestExternalSdPermission() {
-    "use strict";
-    // Produces a standard popup on the device, requesting permission
-    // to write to the device (so that we can copy videos onto the device)
-    // Inspo:
-    // https://github.com/dpa99c/cordova-diagnostic-plugin#example-usage-1
-
-    let deviceOS;
-    cordova.plugins.diagnostic.getDeviceOSVersion(function(osDetails){
-       console.log(osDetails);
-       cordova.plugins.diagnostic.requestRuntimePermission(function (status) {
-            switch (status) {
-
-                case cordova.plugins.diagnostic.permissionStatus.GRANTED:
-                console.log("Permission granted");
-                showVideoMenu();
-                break;
-
-                case cordova.plugins.diagnostic.permissionStatus.DENIED:
-                console.log("Permission denied");
-                break;
-
-                case cordova.plugins.diagnostic.permissionStatus.DENIED_ALWAYS:
-                console.log("Permission permanently denied");
-                break;
-            }
-        }, function (error) {
-            console.log(error);
-        },  osDetails.apiLevel < 33 ? cordova.plugins.diagnostic.permission.WRITE_EXTERNAL_STORAGE : cordova.plugins.diagnostic.permission.READ_MEDIA_VIDEO);
-
-    });
-}
+//
+//function ebRequestExternalSdPermission() {
+//    "use strict";
+//    // Produces a standard popup on the device, requesting permission
+//    // to write to the device (so that we can copy videos onto the device)
+//    // Inspo:
+//    // https://github.com/dpa99c/cordova-diagnostic-plugin#example-usage-1
+//
+//    let deviceOS;
+//    cordova.plugins.diagnostic.getDeviceOSVersion(function(osDetails){
+//       console.log(osDetails);
+//       cordova.plugins.diagnostic.requestRuntimePermission(function (status) {
+//            switch (status) {
+//
+//                case cordova.plugins.diagnostic.permissionStatus.GRANTED:
+//                console.log("Permission granted");
+//                showVideoMenu();
+//                break;
+//
+//                case cordova.plugins.diagnostic.permissionStatus.DENIED:
+//                console.log("Permission denied");
+//                break;
+//
+//                case cordova.plugins.diagnostic.permissionStatus.DENIED_ALWAYS:
+//                console.log("Permission permanently denied");
+//                break;
+//            }
+//        }, function (error) {
+//            console.log(error);
+//        },  osDetails.apiLevel < 33 ? cordova.plugins.diagnostic.permission.WRITE_EXTERNAL_STORAGE : cordova.plugins.diagnostic.permission.READ_MEDIA_VIDEO);
+//
+//    });
+//}
 
 function ebActivateVideoLoadingMessage() {
     "use strict";
