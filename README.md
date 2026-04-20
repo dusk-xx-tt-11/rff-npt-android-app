@@ -92,7 +92,3 @@ Then run the following
 The output of the this command will end with the filepath of the built `app-release.aab`. Signed apps cannot be tested locally (i.e. without having been downloaded from the Play store) so make sure that you are completely satisfied with your local testing before you build a release version. 
 
 Then upload the `aab` to the Google Play store. Instructions on how to do this can be found on the Android developer site [here](https://play.google.com/console/about/guides/releasewithconfidence/).
-
-## Support
-
-For any further information or troubleshooting help, contact [it@electricbookworks.com](mailto:it@electricbookworks.com).
